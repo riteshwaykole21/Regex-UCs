@@ -37,6 +37,13 @@ namespace UserRegistrationSystem
             string regesCondition = "^[9]{1}[1]{1}[ ]{1}[1-9]{1}[0-9]{9}$";
             Iteration(userInput,regesCondition);    
         }
+        public static void PassMin8Char()
+        {
+            Console.WriteLine("Enter your Passwoard");
+            string userInput = Console.ReadLine();
+            string regexCondition = "^[a-zA-ZO-9]{8,}$";
+            Iteration(userInput, regexCondition);
+        }
         public static void Iteration(string userInput, string regexCondition)
         {
             if (Regex.IsMatch(userInput, regexCondition))
