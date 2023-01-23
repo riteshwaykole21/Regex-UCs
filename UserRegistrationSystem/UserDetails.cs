@@ -23,6 +23,13 @@ namespace UserRegistrationSystem
             string regexCondition = "^[A-Z]{1}[a-z]{3,}$";
             Iteration(userInput, regexCondition);
         }
+        public static void Emailid()
+        {
+            Console.WriteLine("Enter Your Email Id");
+            string userInput = Console.ReadLine();
+            string regexCondition = "^[a-z0-9]{1,}([._+-]{1}[a-z0-9]{1,}){0,1}[@]{1}[a-z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-z]{2,3})";
+            Iteration(userInput,regexCondition);
+        }
         public static void Iteration(string userInput, string regexCondition)
         {
             if (Regex.IsMatch(userInput, regexCondition))
