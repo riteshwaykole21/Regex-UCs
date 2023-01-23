@@ -19,7 +19,8 @@ namespace UserRegistrationSystem
                 "Press 3 :To Enter your Email Id \n" +
                 "Press 4 :To enter your Mobile Number \n" +
                 "Press 5: To Set Your Passwoard (minimum 8 Character ).\n" +
-                "Press 6: To set Password Having 8 Minimum character and atkeast 1 upper case in it .\n");
+                "Press 6: To set Password Having 8 Minimum character and atkeast 1 upper case in it .\n" +
+                "Press 7: To set Password having 8 min char and atleast 1 upper case 1 numeric in it.\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -40,6 +41,9 @@ namespace UserRegistrationSystem
                         break;
                     case 6:
                         UserDetails.PassMin8CharAnd1UpperCase();
+                        break;
+                    case 7:
+                        UserDetails.UpperCase1AndNumeric1();
                         break;
                     default:
                         Console.WriteLine("Invalid option selected ,Please try again !");
