@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +21,8 @@ namespace UserRegistrationSystem
                 "Press 4 :To enter your Mobile Number \n" +
                 "Press 5: To Set Your Passwoard (minimum 8 Character ).\n" +
                 "Press 6: To set Password Having 8 Minimum character and atkeast 1 upper case in it .\n" +
-                "Press 7: To set Password having 8 min char and atleast 1 upper case 1 numeric in it.\n");
+                "Press 7: To set Password having 8 min char and atleast 1 upper case 1 numeric in it.\n" +
+                "Press 8: To set Password With having Exactly 1 special Charcter ");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -44,6 +46,11 @@ namespace UserRegistrationSystem
                         break;
                     case 7:
                         UserDetails.UpperCase1AndNumeric1();
+                        break;
+                    case 8:
+                    retry:
+                        UserDetails.SpecialCharacter1();
+                        goto retry;
                         break;
                     default:
                         Console.WriteLine("Invalid option selected ,Please try again !");
