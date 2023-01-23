@@ -16,7 +16,8 @@ namespace UserRegistrationSystem
                 Console.WriteLine("Please select any one from below :\n" +
                 "Press 1 : To Register your First Name.\n" +
                 "Press 2: To Register your Last Name  \n" +
-                "Press 3 :To Enter your Email Id .");
+                "Press 3 :To Enter your Email Id \n" +
+                "Press 4 :To enter your Mobile Number .");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -28,6 +29,9 @@ namespace UserRegistrationSystem
                         break;
                     case 3:
                         UserDetails.Emailid();
+                        break;
+                    case 4:
+                        UserDetails.MobileNumber();
                         break;
                     default:
                         Console.WriteLine("Invalid option selected ,Please try again !");

@@ -30,6 +30,13 @@ namespace UserRegistrationSystem
             string regexCondition = "^[a-z0-9]{1,}([._+-]{1}[a-z0-9]{1,}){0,1}[@]{1}[a-z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-z]{2,3})";
             Iteration(userInput,regexCondition);
         }
+        public static void MobileNumber()
+        {
+            Console.WriteLine("Enter Your Mobile Number");
+            string userInput = Console.ReadLine();
+            string regesCondition = "^[9]{1}[1]{1}[ ]{1}[1-9]{1}[0-9]{9}$";
+            Iteration(userInput,regesCondition);    
+        }
         public static void Iteration(string userInput, string regexCondition)
         {
             if (Regex.IsMatch(userInput, regexCondition))
