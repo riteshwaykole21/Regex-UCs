@@ -9,71 +9,90 @@ namespace UserRegistrationSystem
 {
     public class UserDetails
     {
-        public static void FirstName()      
+        public static void Iteration(string userInput, string regexCondition)
+        {
+            if (Regex.IsMatch(userInput, regexCondition))
+            {
+                Console.WriteLine("Registered Successfully!\n");
+            }
+            else
+            {
+                Console.WriteLine("Entered Details are not in required format.Please try again!\n");
+            }
+        }
+        public static void FirstName()      //UC1
         {
             Console.WriteLine("Enter your FirstName");
             string userInput = Console.ReadLine();
             string regexCondition = "^[A-Z]{1}[a-z]{3,}$";
             Iteration(userInput, regexCondition);
         }
-        public static void LastName()      
+        public static void LastName()      //UC2
         {
             Console.WriteLine("Enter your Last Name");
             string userInput = Console.ReadLine();
             string regexCondition = "^[A-Z]{1}[a-z]{3,}$";
             Iteration(userInput, regexCondition);
         }
-        public static void Emailid()
+        public static void EmailID()        //UC3
         {
-            Console.WriteLine("Enter Your Email Id");
+            Console.WriteLine("Enter your Email ID");
             string userInput = Console.ReadLine();
-            string regexCondition = "^[a-z0-9]{1,}([._+-]{1}[a-z0-9]{1,}){0,1}[@]{1}[a-z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-z]{2,3})";
-            Iteration(userInput,regexCondition);
-        }
-        public static void MobileNumber()
-        {
-            Console.WriteLine("Enter Your Mobile Number");
-            string userInput = Console.ReadLine();
-            string regesCondition = "^[9]{1}[1]{1}[ ]{1}[1-9]{1}[0-9]{9}$";
-            Iteration(userInput,regesCondition);    
-        }
-        public static void PassMin8Char()
-        {
-            Console.WriteLine("Enter your Passwoard");
-            string userInput = Console.ReadLine();
-            string regexCondition = "^[a-zA-ZO-9]{8,}$";
+            string regexCondition = "^[a-z0-9]{1,}([._+-]{1}[a-z0-9]{1,}){0,1}[@]{1}[a-z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-z]{2,3}){0,1}$";
             Iteration(userInput, regexCondition);
         }
-        public static void PassMin8CharAnd1UpperCase()
+        public static void MobileNumber()      
         {
-            Console.WriteLine("Enter Your Password");
+            Console.WriteLine("Enter your Mobile Number");
             string userInput = Console.ReadLine();
-            string regexCondition = "^(?=.*[A-Z]),{1,}[a-zA-ZO-9]{7,}$";
+            string regexCondition = "^[9]{1}[1]{1}[ ]{1}[1-9]{1}[0-9]{9}$";
             Iteration(userInput, regexCondition);
         }
-        public static void UpperCase1AndNumeric1()
+        public static void PassMin8Char()      
         {
             Console.WriteLine("Enter your Password");
             string userInput = Console.ReadLine();
-            string regexCondition = "^(?=.*[A-Z]).{1,}(?=.*[0-9]).{1}[a-zA-ZO-9]{6,}$";
-            Iteration(userInput ,regexCondition);
+            string regexCondition = "^[a-zA-Z0-9]{8,}$";
+            Iteration(userInput, regexCondition);
         }
-        public static void SpecialCharacter1()
+        public static void PassMin8CharAnd1UpperCase() 
+        {
+            Console.WriteLine("Enter your Password");
+            string userInput = Console.ReadLine();
+            string regexCondition = "^(?=.*[A-Z]).{1,}[a-zA-Z0-9]{7,}$";
+            Iteration(userInput, regexCondition);
+        }
+        public static void UpperCase1AndNumeric1() 
+        {
+            Console.WriteLine("Enter your Password");
+            string userInput = Console.ReadLine();
+            string regexCondition = "^(?=.*[A-Z]).{1,}(?=.*[0-9]).{1,}[a-zA-Z0-9]{6,}$";
+            Iteration(userInput, regexCondition);
+        }
+        public static void SpecialCharacter1() 
         {
             Console.WriteLine("Enter your Password");
             string userInput = Console.ReadLine();
             string regexCondition = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*-]).{8,}$";
             Iteration(userInput, regexCondition);
         }
-        public static void Iteration(string userInput, string regexCondition)
+        public static void EmailSample()        
         {
-            if (Regex.IsMatch(userInput, regexCondition))
+            string[] userInput = {"abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com","abc111@abc.com","abc-100@abc.net","abc.100@abc.com.au",
+                                "abc@1.com","abc@gmail.com.com","abc+100@gmail.com",
+                                "abc","abc@.com.my","abc123@gmail.a","abc123@.com","abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com",
+                                "abc..2002@gmail.com","abc.@gmail.com","abc@abc@gmail.com","abc@gmail.com.1a","abc@gmail.com.aa.au"};
+            string regexCondition = "^[a-z0-9]{1,}([._+-]{1}[a-z0-9]{1,}){0,1}[@]{1}[a-z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-z]{2,3}){0,1}$";
+            foreach (string input in userInput)
             {
-                Console.WriteLine("Validated successfully!\n");
-            }
-            else
-            {
-                Console.WriteLine("Entered Details are not in required format.Please try again!\n");
+                if (Regex.IsMatch(input, regexCondition))
+                {
+                    Console.WriteLine($"{input} --> Valid");
+                }
+                else
+                {
+                    Console.WriteLine($"{input} --> Invalid");
+                }
             }
         }
     }
